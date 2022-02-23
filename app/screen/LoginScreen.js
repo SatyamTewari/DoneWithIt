@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, StatusBar, Image } from 'react-native';
-import CustomButton from '../components';
-import MyTextInput from '../components/MyTextInput';
-import colors from '../config/colors';
-import {Formik} from 'formik'
+import * as Yup from 'yup';
+import {AppForm, AppFormField, SubmitButton} from '../components/forms'
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string().required().email().label('Email'),
+    password: Yup.string().required().min(4).label('Password')
+})
 
 function LoginScreen(props) {
 
@@ -11,35 +14,39 @@ function LoginScreen(props) {
         <View style={styles.container}>
             <StatusBar/>
             <Image style={styles.logo} source={require('../assets/logo-red.png')}/>
-            <Formik 
+            {/* <Formik 
                 initialValues={{email: '', password: ''}}
                 onSubmit={values => console.log(values)}
+                validationSchema={validationSchema}
             >
-                {({handleChange, handleSubmit}) => (
+                -- below commented out props code is not required since that is handled now via useFormikContext --
+                {({handleChange, handleSubmit, errors, setFieldTouched, touched}) => (
                     <React.Fragment>
-                        <MyTextInput 
-                            icon='email' 
-                            placeholder='Email' 
-                            autoCapitalize='none' 
-                            autoCorrect={false}
-                            keyboardType='email-address'
-                            onChangeText={handleChange('email')}/>
-                        <MyTextInput 
-                            autoCapitalize='none' 
-                            autoCorrect={false}
-                            icon='lock' 
-                            placeholder='password'
-                            secureTextEntry={true}
-                            onChangeText={handleChange('password')}/>
-                        <CustomButton 
-                            title='Login' 
-                            buttonColor={colors.primary} 
-                            buttonTitleColor={colors.white}
-                            onPress={handleSubmit} />
+                        some components 
                     </React.Fragment>
                 )}
-            </Formik>
-            
+            </Formik> */}
+            <AppForm
+                initialValues={{email: '', password: ''}}
+                onSubmit={values => console.log(values)}
+                validationSchema={validationSchema}
+            >
+                <AppFormField 
+                    icon='email' 
+                    placeholder='Email' 
+                    autoCapitalize='none' 
+                    autoCorrect={false}
+                    keyboardType='email-address'
+                    name='email'/>
+                <AppFormField 
+                    autoCapitalize='none' 
+                    autoCorrect={false}
+                    icon='lock' 
+                    placeholder='password'
+                    secureTextEntry={true}
+                    name='password'/>
+                <SubmitButton title='Login'/>
+            </AppForm>
         </View>
     );
 }

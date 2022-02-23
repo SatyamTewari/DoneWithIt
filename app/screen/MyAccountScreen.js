@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import ListItem from '../components/ListItem';
 import colors from '../config/colors';
 import AppText from '../components/AppText';
 import Icon from '../components/Icon';
+import { ListItem } from '../components/lists';
 
 function MyAccountScreen(props) {
   return (
     <View style={styles.screen}>
         <StatusBar/>
         <View style={[styles.container,{marginTop: 30}]}>
-            <ListItem 
+            <ListItem
                 image={{uri : 'https://media-exp1.licdn.com/dms/image/C5603AQFtXhXrDx-sLQ/profile-displayphoto-shrink_200_200/0/1633698340226?e=1650499200&v=beta&t=tLI3uxrJAltajWwu4qDVWcFxkhthzAhrvApXAawcShc'}}
                 title='Satyam Tewari'
                 subTitle='satyamtewari13@gmail.com'

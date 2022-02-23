@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar, FlatList } from 'react-native';
 import Card from '../components/Card';
-import ListItemSeparator from '../components/ListItemSeparator';
+import { ListItemSeparator } from '../components/lists';
 import colors from '../config/colors';
 
 const listItems = [

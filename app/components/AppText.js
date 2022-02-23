@@ -1,13 +1,13 @@
 import React from 'react';
 import { Platform, StyleSheet, Text } from 'react-native';
 
-function AppText(props) {
+function AppText({children, style}) {
   return (
-    <Text style={[style.text, props.style]}>{props.children}</Text>
+    <Text style={[styles.text, style]}>{children}</Text>
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   text: {
       fontSize : 18,
       fontFamily : Platform.OS === 'android' ? 'Roboto' : 'Alvenir'
