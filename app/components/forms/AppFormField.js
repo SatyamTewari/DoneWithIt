@@ -13,7 +13,7 @@ function AppFormField({name, ...otherProps}) {
             onChangeText={handleChange(name)}
             onBlur={() => setFieldTouched(name)}
             {...otherProps}/>
-        {<ErrorMsg error={errors[name]} visible={touched[name]}/>}
+          <ErrorMsg error={errors[name]} visible={touched[name]}/>
       </React.Fragment>
   );
 }

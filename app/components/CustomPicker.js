@@ -4,11 +4,11 @@ import {Picker} from '@react-native-picker/picker'
 import colors from '../config/colors';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
-function CustomPicker({languagesList,icon,prompt}) {
-    const [selectedLanguage,setSelectedLanguage] = useState()
-    const pickerItems = languagesList.map((language)=>{
+function CustomPicker({itemsList,icon,prompt}) {
+    const [selectedItem,setSelectedItem] = useState()
+    const pickerItems = itemsList.map((item)=>{
         return(
-            <Picker.Item label={language} value={language} key={language}/>
+            <Picker.Item label={item} value={item} key={item}/>
         )
         });
     
@@ -18,8 +18,8 @@ function CustomPicker({languagesList,icon,prompt}) {
             <Picker style={styles.picker}
                 mode='dialog'
                 prompt={prompt}
-                selectedValue={selectedLanguage}
-                onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)
+                selectedValue={selectedItem}
+                onValueChange={(itemValue, itemIndex) => setSelectedItem(itemValue)
             }>
                 {pickerItems}
             </Picker>

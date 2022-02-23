@@ -5,6 +5,7 @@ import ListingsScreen from './app/screen/ListingsScreen';
 import LoginScreen from './app/screen/LoginScreen';
 import MessageScreen from './app/screen/MessageScreen';
 import MyAccountScreen from './app/screen/MyAccountScreen';
+import RegisterScreen from './app/screen/RegisterScreen';
 import ViewImageScreen from './app/screen/ViewImageScreen';
 import WelcomeScreen from './app/screen/WelcomeScreen';
 
@@ -17,6 +18,7 @@ export default function App() {
     // <MyAccountScreen/>
     // <ListingsScreen/>
     // <CustomLearning/>
-    <LoginScreen/>
+    // <LoginScreen/>
+    <RegisterScreen/>
   )
 };

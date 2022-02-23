@@ -8,7 +8,7 @@ function CustomLearning(props) {
     return (
     <View>
         <StatusBar/>
-        {/* <CustomPicker icon='apps' languagesList={languagesList} prompt='Choose a Language'/> */}
+        <CustomPicker icon='apps' itemsList={languagesList} prompt='Choose a Language'/>
     </View>
     );
 }
