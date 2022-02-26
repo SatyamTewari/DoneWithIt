@@ -37,6 +37,7 @@ function ListingsScreen(props) {
                 ({item,index}) => <Card image={item.image} title={item.title} subTitle={item.subTitle}/>
             }
             ItemSeparatorComponent={ListItemSeparator}
+            showsVerticalScrollIndicator = {false}
         >
         </FlatList>
     </View>
