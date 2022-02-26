@@ -5,14 +5,14 @@ import {ListItem, ListItemDeleteAction, ListItemSeparator} from '../components/l
 const initialMessages = [
     {
         id : 1,
-        title : 'T1',
-        description : 'D1',
+        title : 'Kakashi Hatake',
+        description : 'Hey! Is this item still available?',
         image : require('../assets/kakashi.jpg')
     },
     {
         id : 2,
-        title : 'T2',
-        description : 'D2',
+        title : 'Kakashi Hatake',
+        description : 'I\'m interested in this item. When will you be able to post it?',
         image : require('../assets/kakashi.jpg')
     }
 ]
@@ -26,8 +26,9 @@ function MessageScreen(props) {
     }
 
   return (
-    <View style={{ flex: 1}}>
-        <View style={{paddingHorizontal : 20, marginTop: 20, flex: 1}}>
+    <View>
+        <StatusBar/>
+        <View style={{paddingHorizontal : 20, marginTop: 10}}>
             <FlatList
                 data={messages} 
                 keyExtractor={msg => msg.id.toString()}
@@ -38,6 +39,7 @@ function MessageScreen(props) {
                         image={item.image}
                         onPress={()=>console.log('message item')}
                         renderRightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item)}/>}
+                        showChevrons = {true}
                         />
                 }
                 ItemSeparatorComponent={ListItemSeparator}
@@ -49,11 +51,10 @@ function MessageScreen(props) {
                             title : 'T3',
                             description : 'D3',
                             image : require('../assets/kakashi.jpg')
-                        }
-                    ])
+                        }])
+                    }
                 }
-
-                }
+                showsVerticalScrollIndicator={false}
             />
         </View>
     </View>
