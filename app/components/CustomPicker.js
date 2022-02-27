@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
         borderRadius : 25,
         flexDirection : 'row',
         paddingHorizontal : 15,
-        paddingVertical : 5
+        paddingVertical : 5,
+        marginVertical : 10
     },
     icon : {
         alignSelf : 'center',
