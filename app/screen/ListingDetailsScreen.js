@@ -4,18 +4,19 @@ import AppText from '../components/AppText';
 import { ListItem } from '../components/lists';
 import colors from '../config/colors';
 
-function ListingDetailsScreen(props) {
-  return (
-    <View>
-        <StatusBar/>
-        <Image source={require('../assets/jacket.jpg')} style={styles.image}/>
-        <View style={styles.detailsContainer}>
-            <AppText style={styles.title}>Blue Jacket for sale</AppText>
-            <AppText style={styles.price}>$100</AppText>
-            <ListItem image={require('../assets/kakashi.jpg')} title='Kakashi Hatake'subTitle='5 Listings'/>
+function ListingDetailsScreen({route}) {
+    const listing = route.params;
+    return (
+        <View>
+            <StatusBar/>
+            <Image source={listing.image} style={styles.image}/>
+            <View style={styles.detailsContainer}>
+                <AppText style={styles.title}>{listing.title}</AppText>
+                <AppText style={styles.price}>{listing.subTitle}</AppText>
+                <ListItem image={require('../assets/kakashi.jpg')} title='Kakashi Hatake'subTitle='5 Listings'/>
+            </View>
         </View>
-    </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({

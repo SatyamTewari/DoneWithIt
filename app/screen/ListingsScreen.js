@@ -3,6 +3,7 @@ import { View, StyleSheet, StatusBar, FlatList } from 'react-native';
 import Card from '../components/Card';
 import { ListItemSeparator } from '../components/lists';
 import colors from '../config/colors';
+import routes from '../navigation/routes';
 
 const listItems = [
     {
@@ -25,7 +26,7 @@ const listItems = [
     },
 ]
 
-function ListingsScreen(props) {
+function ListingsScreen({navigation}) {
 
     return (
     <View style={styles.screen}>
@@ -34,7 +35,11 @@ function ListingsScreen(props) {
             data={listItems} 
             keyExtractor={m=>m.id.toString()}
             renderItem={
-                ({item,index}) => <Card image={item.image} title={item.title} subTitle={item.subTitle}/>
+                ({item}) => <Card 
+                    image={item.image} 
+                    title={item.title} 
+                    subTitle={item.subTitle} 
+                    onPress={()=>navigation.navigate(routes.LISTINGDETAILS,item)}/>
             }
             ItemSeparatorComponent={ListItemSeparator}
             showsVerticalScrollIndicator = {false}

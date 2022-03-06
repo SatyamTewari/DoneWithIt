@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar,TouchableWithoutFeedback } from 'react-native';
 import colors from '../config/colors';
 import AppText from '../components/AppText';
 import Icon from '../components/Icon';
 import { ListItem } from '../components/lists';
+import routes from '../navigation/routes';
 
-function MyAccountScreen(props) {
+function MyAccountScreen({navigation}) {
   return (
     <View style={styles.screen}>
         <StatusBar/>
@@ -17,14 +18,18 @@ function MyAccountScreen(props) {
             />
         </View>
         <View style={[styles.container,{marginTop: 50}]}>
-            <View style={[styles.itemHolder,{marginBottom: 20}]}>
-                <Icon name='format-list-bulleted' color={colors.primary}/>
-                <AppText>My Listings</AppText>
-            </View>
-            <View style={styles.itemHolder}>
-                <Icon name='email' color={colors.secondary}/>
-                <AppText>My Messages</AppText>
-            </View>
+            <TouchableWithoutFeedback onPress={()=>navigation.navigate('lol')}>
+                <View style={[styles.itemHolder,{marginBottom: 20}]}>
+                    <Icon name='format-list-bulleted' color={colors.primary}/>
+                    <AppText>My Listings</AppText>
+                </View>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={()=>navigation.navigate(routes.MESSAGES)}>
+                <View style={styles.itemHolder}>
+                    <Icon name='email' color={colors.secondary}/>
+                    <AppText>My Messages</AppText>
+                </View>
+            </TouchableWithoutFeedback>
         </View>
         <View style={[styles.container, {marginTop:20}]}>
             <View style={styles.itemHolder}>
